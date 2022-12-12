@@ -9,6 +9,7 @@ public class PlayerRespawn : MonoBehaviour
     private Lives Lives;
     private CharController player;
 
+
     private void Start()
     {
         Lives = GetComponent<Lives>();
@@ -19,6 +20,11 @@ public class PlayerRespawn : MonoBehaviour
     {
         player.rb.velocity = Vector2.zero;
         transform.position = CurrentCheckpoint.position;
+        Lives.ResetHealth();
+    }
+    public void PlayerReset()
+    {
+        transform.position = Vector3.zero;
         Lives.ResetHealth();
     }
 

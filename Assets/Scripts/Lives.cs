@@ -14,7 +14,6 @@ public class Lives : MonoBehaviour
     private PlayerRespawn PlayerRespawn;
 
     private CharController Player;
-    private PointsDriver Points;
 
     public int Deaths
     {
@@ -34,7 +33,6 @@ public class Lives : MonoBehaviour
         CurrentHealth = StartingLives;
         Player = GetComponent<CharController>();
         PlayerRespawn = GetComponent<PlayerRespawn>();
-        Points = GetComponent<PointsDriver>();
     }
 
     public void TakeDamage(int _dammage)
@@ -47,10 +45,17 @@ public class Lives : MonoBehaviour
         }
         else
         {
-            Debug.Log("Game Over");
-            PlayerRespawn.Respawn();
             Deaths++;
-            Points.points -= DeathCost;
+            points -= DeathCost;
+
+            if (points >= 0)
+            {
+                PlayerRespawn.Respawn();
+            }
+            else
+            {
+                PlayerRespawn.PlayerReset();
+            }
         }
     }
 
@@ -59,4 +64,9 @@ public class Lives : MonoBehaviour
         CurrentHealth = StartingLives;
     }
 
+    public int points
+    {
+        get;
+        set;
+    }
 }

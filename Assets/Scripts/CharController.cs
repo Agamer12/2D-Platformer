@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.Requests;
+
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class CharController : MonoBehaviour
 {
@@ -31,9 +35,9 @@ public class CharController : MonoBehaviour
         xInput = Input.GetAxis("Horizontal");
         yInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            rb.rotation = 50f;
+            Application.Quit();
         }
 
         while (transform.position.y < -20)
@@ -53,10 +57,15 @@ public class CharController : MonoBehaviour
             jump(jumpForce);
         }
     }
-    
+
     public void jump(float _force)
     {
         rb.velocity = new Vector2(rb.velocity.x - .01f, _force);
+    }
+
+    public void jumpPad(float _force)
+    {
+        rb.velocity = new Vector2(rb.velocity.x - .01f, Math.Abs(rb.velocity.y) + _force);
     }
 
     private bool isGrounded()

@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class PointsUI : MonoBehaviour
 {
-    [SerializeField] private PointsDriver PlayerPoints;
+    [SerializeField] private Lives PlayerPoints;
+
     private TextMeshProUGUI PointsDisplay;
+
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPoints.GetComponent<PointsDriver>();
+        PlayerPoints = GetComponent<Lives>();
         PointsDisplay = GetComponent<TextMeshProUGUI>();
     }
 
