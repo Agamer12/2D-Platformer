@@ -12,7 +12,6 @@ public class PlayerRespawn : MonoBehaviour
     private void Start()
     {
         Lives = GetComponent<Lives>();
-        Console.WriteLine("test");
         player = GetComponent<CharController>();
     }
 

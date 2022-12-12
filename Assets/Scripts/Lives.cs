@@ -9,9 +9,12 @@ public class Lives : MonoBehaviour
 
     [SerializeField] private int StartingLives = 3;
     [SerializeField] private float hurtJumpForce = 10f;
+    [SerializeField] private int DeathCost;
+
     private PlayerRespawn PlayerRespawn;
 
     private CharController Player;
+    private PointsDriver Points;
 
     public int Deaths
     {
@@ -31,6 +34,7 @@ public class Lives : MonoBehaviour
         CurrentHealth = StartingLives;
         Player = GetComponent<CharController>();
         PlayerRespawn = GetComponent<PlayerRespawn>();
+        Points = GetComponent<PointsDriver>();
     }
 
     public void TakeDamage(int _dammage)
@@ -46,6 +50,7 @@ public class Lives : MonoBehaviour
             Debug.Log("Game Over");
             PlayerRespawn.Respawn();
             Deaths++;
+            Points.points -= DeathCost;
         }
     }
 
