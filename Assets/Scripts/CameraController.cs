@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = new Vector3(player.position.x, player.position.y + .5f, zoom);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             
             if (zFlag) 

@@ -33,12 +33,6 @@ public class Lives : MonoBehaviour
         PlayerRespawn = GetComponent<PlayerRespawn>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int _dammage)
     {
         if (CurrentHealth > 0)

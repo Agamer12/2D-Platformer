@@ -27,6 +27,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         if (collision.transform.tag == ("Checkpoint"))
         {
+            Lives.ResetHealth();
             Console.WriteLine("Checkpoint Set");
             CurrentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;

@@ -48,7 +48,7 @@ public class CharController : MonoBehaviour
         }
 
         //Jump code
-        if (isGrounded() && (yInput > .1f))
+        if (isGrounded() && (yInput > .1f || Input.GetKeyDown(KeyCode.Space)))
         {
             jump(jumpForce);
         }
