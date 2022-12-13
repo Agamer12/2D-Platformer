@@ -19,7 +19,7 @@ public class Points : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
-            collider.GetComponent<PointsDriver>().points += value;
+            collider.GetComponent<Lives>().points += value;
             colide.enabled = false;
             render.enabled = false;
 

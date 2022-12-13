@@ -63,11 +63,6 @@ public class CharController : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x - .01f, _force);
     }
 
-    public void jumpPad(float _force)
-    {
-        rb.velocity = new Vector2(rb.velocity.x - .01f, Math.Abs(rb.velocity.y) + _force);
-    }
-
     private bool isGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size * .9f, 0f, Vector2.down, .2f, groundLayer);

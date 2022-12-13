@@ -10,7 +10,7 @@ public class JumpPad : MonoBehaviour
         if (collider.tag == ("Player"))
         {
             Debug.Log("JumpPad");
-            collider.GetComponent<CharController>().jumpPad(jumpForce);
+            collider.GetComponent<CharController>().jump(jumpForce);
         }
     }
 }
