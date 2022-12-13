@@ -44,3 +44,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backdrops
+    uniqueID: 1937458977
+    locked: 0
+  - name: Background
+    uniqueID: 3205192241
+    locked: 0
+  - name: Special Blocks
+    uniqueID: 3534684549
+    locked: 0
+  - name: Props
+    uniqueID: 2402212651
+    locked: 0
+  - name: Player
+    uniqueID: 2230022997
+    locked: 0
