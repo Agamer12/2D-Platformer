@@ -12,7 +12,7 @@ public class PointsUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPoints = GetComponent<Lives>();
+        PlayerPoints.GetComponent<Lives>();
         PointsDisplay = GetComponent<TextMeshProUGUI>();
     }
 
