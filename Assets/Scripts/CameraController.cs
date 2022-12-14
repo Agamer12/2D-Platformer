@@ -8,13 +8,13 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] public Transform player;
 
-    private int zoom = -10;
+    private int zoom = -20;
     private bool zFlag;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        zFlag = true;
     }
 
     // Update is called once per frame

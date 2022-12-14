@@ -8,11 +8,13 @@ public class Points : MonoBehaviour
 
     private Collider2D colide;
     private Renderer render;
+    private AudioSource coinSound;
 
     private void Start()
     {
         colide = GetComponent<Collider2D>();
         render = GetComponent<Renderer>();
+        coinSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -20,6 +22,7 @@ public class Points : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             collider.GetComponent<Lives>().points += value;
+            coinSound.Play();
             colide.enabled = false;
             render.enabled = false;
 

@@ -18,6 +18,7 @@ public class CharController : MonoBehaviour
     public Rigidbody2D rb;
     private BoxCollider2D boxCollider;
     private Lives Health;
+    [SerializeField] private AudioSource JumpSound;
 
     private float xInput;
     private float yInput;
@@ -61,6 +62,8 @@ public class CharController : MonoBehaviour
     public void jump(float _force)
     {
         rb.velocity = new Vector2(rb.velocity.x - .01f, _force);
+        JumpSound.Play();
+
     }
 
     private bool isGrounded()

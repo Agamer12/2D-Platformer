@@ -8,7 +8,7 @@ public class PlayerRespawn : MonoBehaviour
     private Transform CurrentCheckpoint;
     private Lives Lives;
     private CharController player;
-
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -38,6 +38,8 @@ public class PlayerRespawn : MonoBehaviour
             CurrentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("appear");
+            audioSource = collision.GetComponent<AudioSource>();
+            audioSource.Play();
         }
     }
 }
