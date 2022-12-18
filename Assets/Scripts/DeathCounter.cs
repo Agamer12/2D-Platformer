@@ -7,20 +7,20 @@ using UnityEngine.UI;
 public class DeathCounter : MonoBehaviour
 {
 
-    private TextMeshProUGUI deathsDisplay;
+    private TextMeshProUGUI _deathsDisplay;
     [SerializeField] private Lives player;
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        deathsDisplay = GetComponent<TextMeshProUGUI>();
+        _deathsDisplay = GetComponent<TextMeshProUGUI>();
         player.GetComponent<Lives>();
-        deathsDisplay.text = "Deaths: " + player.Deaths;
+        _deathsDisplay.text = "Deaths: " + player.Deaths;
     }
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        deathsDisplay.text = "Deaths: " + player.Deaths;
+        _deathsDisplay.text = "Deaths: " + player.Deaths;
     }
 }

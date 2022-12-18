@@ -5,41 +5,41 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    private Transform CurrentCheckpoint;
-    private Lives Lives;
-    private CharController player;
-    private AudioSource audioSource;
+    private Transform _currentCheckpoint;
+    private Lives _lives;
+    private CharController _player;
+    private AudioSource _audioSource;
 
     private void Start()
     {
-        Lives = GetComponent<Lives>();
-        player = GetComponent<CharController>();
+        _lives = GetComponent<Lives>();
+        _player = GetComponent<CharController>();
     }
 
     public void Respawn()
     {
-        player.rb.velocity = Vector2.zero;
-        transform.position = CurrentCheckpoint.position;
-        Lives.ResetHealth();
+        _player.rb.velocity = Vector2.zero;
+        transform.position = _currentCheckpoint.position;
+        _lives.ResetHealth();
     }
     public void PlayerReset()
     {
         transform.position = Vector3.zero;
-        Lives.ResetHealth();
-        Lives.points = 0;
+        _lives.ResetHealth();
+        _lives.points = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.tag == ("Checkpoint"))
+        if (collision.transform.CompareTag(("Checkpoint")))
         {
-            Lives.ResetHealth();
+            _lives.ResetHealth();
             Console.WriteLine("Checkpoint Set");
-            CurrentCheckpoint = collision.transform;
+            _currentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;
             collision.GetComponent<Animator>().SetTrigger("appear");
-            audioSource = collision.GetComponent<AudioSource>();
-            audioSource.Play();
+            _audioSource = collision.GetComponent<AudioSource>();
+            _audioSource.Play();
         }
     }
 }

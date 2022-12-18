@@ -6,25 +6,25 @@ public class Points : MonoBehaviour
 {
     [SerializeField] private int value;
 
-    private Collider2D colide;
-    private Renderer render;
-    private AudioSource coinSound;
+    private Collider2D _colide;
+    private Renderer _render;
+    private AudioSource _coinSound;
 
     private void Start()
     {
-        colide = GetComponent<Collider2D>();
-        render = GetComponent<Renderer>();
-        coinSound = GetComponent<AudioSource>();
+        _colide = GetComponent<Collider2D>();
+        _render = GetComponent<Renderer>();
+        _coinSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Player")
+        if (collider.gameObject.CompareTag("Player"))
         {
             collider.GetComponent<Lives>().points += value;
-            coinSound.Play();
-            colide.enabled = false;
-            render.enabled = false;
+            _coinSound.Play();
+            _colide.enabled = false;
+            _render.enabled = false;
 
         }
     }

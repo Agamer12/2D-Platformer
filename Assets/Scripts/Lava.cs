@@ -7,7 +7,7 @@ public class Lava : MonoBehaviour
     [SerializeField] private int Dammage;
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == ("Player"))
+        if (collider.CompareTag(("Player")))
         {
             collider.GetComponent<Lives>().TakeDamage(Dammage);
         }

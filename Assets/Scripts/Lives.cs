@@ -11,9 +11,9 @@ public class Lives : MonoBehaviour
     [SerializeField] private float hurtJumpForce = 10f;
     [SerializeField] private int DeathCost;
 
-    private PlayerRespawn PlayerRespawn;
+    private PlayerRespawn _playerRespawn;
 
-    private CharController Player;
+    private CharController _player;
 
     public int Deaths
     {
@@ -31,8 +31,8 @@ public class Lives : MonoBehaviour
     {
         Deaths = 0;
         CurrentHealth = StartingLives;
-        Player = GetComponent<CharController>();
-        PlayerRespawn = GetComponent<PlayerRespawn>();
+        _player = GetComponent<CharController>();
+        _playerRespawn = GetComponent<PlayerRespawn>();
     }
 
     public void TakeDamage(int _dammage)
@@ -41,7 +41,7 @@ public class Lives : MonoBehaviour
         {
             CurrentHealth -= _dammage;
             Debug.Log("Lives: " + CurrentHealth);
-            Player.jump(hurtJumpForce);
+            _player.Jump(hurtJumpForce);
         }
         else
         {
@@ -50,11 +50,11 @@ public class Lives : MonoBehaviour
 
             if (points >= 0)
             {
-                PlayerRespawn.Respawn();
+                _playerRespawn.Respawn();
             }
             else
             {
-                PlayerRespawn.PlayerReset();
+                _playerRespawn.PlayerReset();
             }
         }
     }

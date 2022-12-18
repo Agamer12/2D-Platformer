@@ -12,13 +12,13 @@ public class CameraController : MonoBehaviour
     private bool zFlag;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         zFlag = true;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.position = new Vector3(player.position.x, player.position.y + .5f, zoom);
 
